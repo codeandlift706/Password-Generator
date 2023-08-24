@@ -13,5 +13,10 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
+// Add event listener to generate button, when clicked executes function writePassword
 generateBtn.addEventListener("click", writePassword);
+
+//Alert once clicked
+//function writePassword() {
+//  alert ("Generate a random password with me!");
+//}
