@@ -1,28 +1,24 @@
-// Assignment code here
-
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
+//function declaration VVVVV
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  // passwordText = object, sets the value of passwordText = password
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-//---------------------------------------------------------------------------------------
+//------------------------------------------CHOOSE CHARACTER LENGTH CODE---------------------------------------------
 
-  function PasswordCharacterLength () {
-    const characterlength = prompt("What is the length of your desired password?")
+  function generatePassword () {
+    let characterLength = prompt("What is the length of your desired password?");
   
-    
-    if (characterlength < 8) {
+    if (characterLength < 8) {
       alert("Length of password must be at least 8 characters. Please input a different number.");
   
     return;
@@ -32,83 +28,66 @@ generateBtn.addEventListener("click", writePassword);
   
     return;
   
-    } else if (characterlength >= 8 && characterlength < 128) {
-      alert("Got it! Now, which character type(s) do you want to include in your password? Select at least one.");
+    } else if (characterLength >= 8 && characterLength < 128) {
+      alert("Got it! Now, answer the following questions to select which character type(s) you want to include in your password.");
     }
-  
-    
-  
-    const password = generatePassword();
-    const passwordText = document.querySelector("#password");
-    
-    passwordText.value = password;
   
   }
 
-//--------------------------------------------------------------
+//-------------------------------------------CHOOSE TYPE OF CHARACTER CODE------------------------------------------
+//If selected, the character type will be added to the array
 
 // RESOURCE FROM CLASS
-  const generateBtn = document.querySelector("#generate");
+    let generateBtn = document.querySelector("#generate");
 
   function writePassword() {
-    const characterSelection = [];
+    let characterSelections = [];
     
-    const SelectLowercaseChar = confirm("Do you want lowercase characters?"); 
-    const SelectUppercaseChar = confirm("Do you want uppercase characters?"); 
-    const SelectNumberChar = confirm("Do you want numeric characters?"); 
-    const SelectSpecialChar = confirm("Do you want special characters?"); 
+    let SelectLowercaseChar = confirm("Do you want lowercase characters?"); 
+    let SelectUppercaseChar = confirm("Do you want uppercase characters?"); 
+    let SelectNumberChar = confirm("Do you want numeric characters?"); 
+    let SelectSpecialChar = confirm("Do you want special characters?"); 
 
-    const WantLowercaseChar = "qwertyuiopasdfghjklzxcvbnm".split("").sort();
-    const WantUppercaseChar = "QWERTYUIOPASDFGHJKLZXCVBNM".split("").sort();
-    const WantNumberChar = "1234567890".split("").sort();
-    const WantSpecialChar = "!@#$%^&*_+:<>".split("").sort();
+    let WantLowercaseChar = "qwertyuiopasdfghjklzxcvbnm".split("").sort();
+    let WantUppercaseChar = "QWERTYUIOPASDFGHJKLZXCVBNM".split("").sort();
+    let WantNumberChar = "1234567890".split("").sort();
+    let WantSpecialChar = "!@#$%^&*_+:<>".split("").sort();
     
     if (SelectLowercaseChar) {
-     characterSelection.concat("WantLowercaseChar"); 
+    characterSelections.concat(WantLowercaseChar); 
     }
     
     if (SelectUppercaseChar) {
-      characterSelection.concat("WantUppercaseChar"); 
+    characterSelections.concat(WantUppercaseChar); 
     }
     
     if (SelectNumberChar) {
-      characterSelection.concat("WantNumberChar"); 
+    characterSelections.concat(WantNumberChar); 
     }
     
     if (SelectSpecialChar) {
-      characterSelection.concat("WantSpecialChar"); 
+    characterSelections.concat(WantSpecialChar); 
     }
     
-    return characterSelection[Math.floor(Math.random() * characterSelection.length)];
+
+    return characterSelections[Math.floor(Math.random() * characterSelections.length)];
+    
   }
   
+  
   function generatePassword() {
-    const CharacterSelected = CharacterOption();
+    let characterSelections = CharacterOption();
     
     alert("Great!");  
   }
   
   generateBtn.addEventListener("click", writePassword)
 
+//-----------------------------MATH TO PUT IT ALL TOGETHER--------------------------------------
+  let characterSelections = "";
 
-//----------------------------------------------------------------------------------
-//if confirmed, the password criteria will be added to the caracter set array
-
-for (let i = 0; i <  ; i++) {
-
-
-  return inAttendance[Math.floor(Math.random() * inAttendance.length)];
-
-
-  for (let i = 0; i < convertInt; i++) {
-    const randomIndex = Math.floor(Math.random() * charSet.length);
-    password = password + charSet[randomIndex];
+  for (let i = 0; i < characterLength; i++) {
+    let randomArray = Math.floor(Math.random()) * characterSelection.length;
+    password = password + characterSelection[randomArray];
   }
   return password;
-
-
-randomIndex=math is giving you a random number to use in the charset
-charset = collection of what they say yes to
-let charset = ""
-if they say yes to lowercase, use concat
-if theey say 
