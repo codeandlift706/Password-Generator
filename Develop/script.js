@@ -1,7 +1,8 @@
 //global variables
 let generateBtn = document.querySelector("#generate");
 
-//------------------------------------------CHOOsE CHARACTER LENGTH CODE---------------------------------------------
+// //------------------------------------------CHOOSE CHARACTER LENGTH CODE & CHARACTER CODE TYPE
+
 
 function passwordCharacterLength() {
   let characterLength = prompt("What is the length of your desired password? Enter a number.");
@@ -17,18 +18,20 @@ function passwordCharacterLength() {
   } else {
     alert("Got it! Now, answer the following questions to select which character type(s) you want to include in your password.");
 
+    console.log(characterLength);
     return characterLength; //the character length inputed
+    selectPasswordChar();
   }
-
+  
 }
 
-//-------------------------------------------CHOOsE TYPE OF CHARACTER CODE------------------------------------------
-//If selected, the character type will be added to the array
+// //-------------------------------------------CHOOsE TYPE OF CHARACTER CODE
+// //If selected, the character type will be added to the array
 
-// REsOURCE FROM CLAss
+// RESOURCE FROM CLASS
 
 function selectPasswordChar() {
-
+  
   let selectLowercaseChar = confirm("Do you want lowercase characters?");
   let selectUppercaseChar = confirm("Do you want uppercase characters?");
   let selectNumberChar = confirm("Do you want numeric characters?");
@@ -42,11 +45,12 @@ function selectPasswordChar() {
   let masterArray = [selectLowercaseChar, selectUppercaseChar, selectNumberChar, selectSpecialChar];
   console.log(masterArray);
 
+  console.log(masterArray);
   return masterArray; //the array of all characters
 }
 
 
-//-----------------------------FORMULAs TO GENERATE THE PAssWORD----------------------------------------------------------
+// //-----------------------------FORMULAs TO GENERATE THE PAssWORD----------------------------------------------------------
 
 function generatePassword(int, array) {
 
@@ -71,7 +75,7 @@ function generatePassword(int, array) {
   return officialPassword;
 }
 
-//-----------------------------sTARTER CODE & NOW COMBINE sO THEY ARE PAssING------------------------------------------------------------------------------
+// //-----------------------------sTARTER CODE & NOW COMBINE sO THEY ARE PAssING------------------------------------------------------------------------------
 
 // Write password to the #password input
 function writePassword() {
@@ -92,3 +96,4 @@ function writePassword() {
 //processes
 //Add event listener to generate button
 generateBtn.addEventListener("click", passwordCharacterLength);
+
