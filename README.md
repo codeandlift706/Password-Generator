@@ -7,10 +7,10 @@ VS Code to create and manipulate HTML, CSS, and JavaScript elements for the app 
 
 ## Visuals
 View a screenshot of the app here:
-![Screenshot](PasswordGenScreenshot.png)
+![Screenshot](assets/PasswordGenScreenshot.png)
 
 View a screenshot of the VS Code here:
-![Screenshot](ScreenshotVSCode.png)
+![Screenshot](assets/ScreenshotVSCode.png)
 
 ## Credits
 The web page and its images are credited to the content in the starter-code repository, found here: https://github.com/coding-boot-camp/friendly-parakeet. The coding (EventListener, arrays, passing, for loops, functions, etc) -all the additions- that were made to the web page are credited to the curriculum taught in the UCI coding boot camp and are credited to the instructor and classmates in the UCI coding boot camp
