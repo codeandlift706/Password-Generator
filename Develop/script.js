@@ -1,83 +1,94 @@
+//global variables
 let generateBtn = document.querySelector("#generate");
 
-//------------------------------------------CHOOSE CHARACTER LENGTH CODE---------------------------------------------
+//------------------------------------------CHOOsE CHARACTER LENGTH CODE---------------------------------------------
 
-function PasswordCharacterLength () {
+function passwordCharacterLength() {
   let characterLength = prompt("What is the length of your desired password? Enter a number.");
-  PasswordCharacterLength = parseInt(PasswordCharacterLength);
+  passwordCharacterLength = parseInt(passwordCharacterLength);
 
-    if (characterLength < 8) {
-      alert("Length of password must be at least 8 characters. Please input a higher number.");
-      return;
-    } else if (characterLength > 128) {
-      alert("Length of password must be less than 128 characters. Please input a lower number.");
-      return;
-    } else (characterLength >= 8 && characterLength < 128); {
-      alert("Got it! Now, answer the following questions to select which character type(s) you want to include in your password.");
-    }
-      return PasswordCharacterLength;
+  if (characterLength < 8) {
+    alert("Length of password must be at least 8 characters. Please input a higher number.");
+    return null;
+  } else if (characterLength > 128) {
+    alert("Length of password must be less than 128 characters. Please input a lower number.");
+    return null;
+
+  } else {
+    alert("Got it! Now, answer the following questions to select which character type(s) you want to include in your password.");
+
+    return characterLength; //the character length inputed
   }
 
-//-------------------------------------------CHOOSE TYPE OF CHARACTER CODE------------------------------------------
+}
+
+//-------------------------------------------CHOOsE TYPE OF CHARACTER CODE------------------------------------------
 //If selected, the character type will be added to the array
 
-// RESOURCE FROM CLASS
+// REsOURCE FROM CLAss
 
-function SelectPasswordChar () {
-  
-  let SelectLowercaseChar = confirm("Do you want lowercase characters?"); 
-  let SelectUppercaseChar = confirm("Do you want uppercase characters?"); 
-  let SelectNumberChar = confirm("Do you want numeric characters?"); 
-  let SelectSpecialChar = confirm("Do you want special characters?"); 
-  
-  if (!SelectLowercaseChar && !SelectUppercaseChar && !SelectNumberChar && !SelectSpecialChar) {
+function selectPasswordChar() {
+
+  let selectLowercaseChar = confirm("Do you want lowercase characters?");
+  let selectUppercaseChar = confirm("Do you want uppercase characters?");
+  let selectNumberChar = confirm("Do you want numeric characters?");
+  let selectSpecialChar = confirm("Do you want special characters?");
+
+  if (!selectLowercaseChar && !selectUppercaseChar && !selectNumberChar && !selectSpecialChar) {
     alert("You must select at least one character type.");
     return null;
   }
 
+  let masterArray = [selectLowercaseChar, selectUppercaseChar, selectNumberChar, selectSpecialChar];
+  console.log(masterArray);
+
+  return masterArray; //the array of all characters
 }
 
-//-----------------------------FORMULAS TO GENERATE THE PASSWORD----------------------------------------------------------
 
-function generatePassword (int, array) {
+//-----------------------------FORMULAs TO GENERATE THE PAssWORD----------------------------------------------------------
 
-  let WantLowercaseChar = "qwertyuiopasdfghjklzxcvbnm".split("").sort();
-  let WantUppercaseChar = "QWERTYUIOPASDFGHJKLZXCVBNM".split("").sort();
-  let WantNumberChar = "1234567890".split("").sort();
-  let WantSpecialChar = "!@#$%^&*_+:<>".split("").sort();
-  let characterSelections = [WantLowercaseChar, WantUppercaseChar, WantNumberChar, WantSpecialChar];
+function generatePassword(int, array) {
+
+  let wantLowercaseChar = "qwertyuiopasdfghjklzxcvbnm".split("").sort(); //creates array with each separate item
+  let wantUppercaseChar = "QWERTYUIOPAsDFGHJKLZXCVBNM".split("").sort(); //creates array with each separate item
+  let wantNumberChar = "1234567890".split("").sort(); //creates array with each separate item
+  let wantSpecialChar = "!@#$%^&*_+:<>".split("").sort(); //creates array with each separate item
+  let characterSelections = [wantLowercaseChar, wantUppercaseChar, wantNumberChar, wantSpecialChar];
   let randomArray = "";
   let officialPassword = "";
 
   for (let i = 0; i < characterSelections.length; i++) {
-    if (array[i]){ 
+    if (array[i]) {
       randomArray = randomArray.concat(characterSelections[i]);
     }
-    }
+  }
 
   for (let i = 0; i < int; i++) {
     officialPassword += randomArray.charAt(Math.floor(Math.random() * randomArray.length));
-    }
-
-  return officialPassword;
   }
 
-//-----------------------------STARTER CODE & NOW COMBINE SO THEY ARE PASSING------------------------------------------------------------------------------
+  return officialPassword;
+}
+
+//-----------------------------sTARTER CODE & NOW COMBINE sO THEY ARE PAssING------------------------------------------------------------------------------
 
 // Write password to the #password input
 function writePassword() {
-  let passwordText = document.querySelector("#password");
-  let PasswordCharacterLength = PasswordCharacterLength();
-    if(PasswordCharacterLength == null) {
-      return;
-    }
-  let arrayMaster = SelectPasswordChar();
-    if(SelectPasswordChar == null) {
-      return;
-  } 
-  let finalPassword = generatePassword(PasswordCharacterLength, arrayMaster);
+  let passwordText = document.queryselector("#password");
+  let passwordCharacterLength = passwordCharacterLength();
+  if (passwordCharacterLength == null) {
+    return;
+  }
+  let arrayMaster = selectPasswordChar();
+  if (selectPasswordChar == null) {
+    return;
+  }
+  let finalPassword = generatePassword(passwordCharacterLength, arrayMaster);
   passwordText.value = password;
 }
 
+
+//processes
 //Add event listener to generate button
-generateBtn.addEventListener("click", PasswordCharacterLength);
+generateBtn.addEventListener("click", passwordCharacterLength);
