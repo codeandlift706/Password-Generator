@@ -19,7 +19,7 @@ function passwordCharacterLength() {
 
     console.log(characterLength); //characterLength is the # the user inputted
     passwordCharacterType();
-    generatePassword(characterLength); //pass the user input
+    generatePassword(characterLength);
   }
 }
 
@@ -40,10 +40,9 @@ function passwordCharacterType() {
 
     let masterArray = [selectLowercaseChar, selectUppercaseChar, selectNumberChar, selectSpecialChar];
     console.log(masterArray);
-
-    generatePassword(masterArray);
+    
+    generatePassword(masterArray)
   }
-
 
 
 //GENERATE RANDOM PASSWORD FROM SELECTIONS
@@ -64,6 +63,7 @@ function generatePassword(characterLength, masterArray) {
     }
   }
 
+  console.log(characterLength);
   for (let i = 0; i < characterLength; i++) {
       officialPassword += randomArray.charAt(Math.floor(Math.random() * randomArray.length));
     }
@@ -74,7 +74,10 @@ function generatePassword(characterLength, masterArray) {
   
 
 
+
+
+
 //processes
 //Add event listener to generate button
-generateBtn.addEventListener("click", characterLength);
+generateBtn.addEventListener("click", passwordCharacterLength);
 
