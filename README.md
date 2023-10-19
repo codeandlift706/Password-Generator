@@ -32,6 +32,7 @@ The web page and its images are credited to the content in the starter-code repo
 Source for information on addEventListener: https://www.w3schools.com/js/js_htmldom_eventlistener.asp.
 Source for parseInt: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt.
 Source for math-random: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random.
+Source for math-floor: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor.
 
 ## Questions
 The link to my Github Profile here: https://github.com/codeandlift706.
