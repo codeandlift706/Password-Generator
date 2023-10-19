@@ -32,10 +32,41 @@ function passwordCharacterType() {
   let selectNumberChar = confirm("Do you want numeric characters?");
   let selectSpecialChar = confirm("Do you want special characters?");
 
-
   if (!selectLowercaseChar && !selectUppercaseChar && !selectNumberChar && !selectSpecialChar) { //if the user selects none
     alert("You must select at least one character type.");
     return null;
+  } else { //if the user selects something
+
+    let randomArray = [allCharactersArray]; //create a new array object to hold what the user picked
+    let array = [];
+    console.log(typeof array); //object
+    console.log(typeof randomArray); //object
+    // allCharactersArray = "";
+    
+    // for (let i = 0; i < allCharactersArray.length; i++) { //loop through array of arrays ??????
+    //   if (allCharactersArray[i]) { //if the user picked the current array
+    //     randomArray = randomArray.concat(allCharactersArray[i]); //add that current array to the random array
+    //   }
+    // }
+    
+    //create password object to hold the string
+    let officialPassword = "";
+    
+    // for (let i = 0; i < characterLength; i++) {
+
+    // }
+    //   for (let i = 0; i < int; i++) {
+      //     officialPassword += randomArray.charAt(Math.floor(Math.random() * randomArray.length));
+      //   }
+      
+    //   return officialPassword;
+    
+    
+    
+    //we want to pull data from array --> string
+    // stringedVersion = allCharactersArray.toString();
+    // console.log(stringedVersion);
+
   }
 
     let masterArray = [selectLowercaseChar, selectUppercaseChar, selectNumberChar, selectSpecialChar];
@@ -76,4 +107,5 @@ function generatePassword(characterLength, masterArray) {
 
 //processes
 //Add event listener to generate button
-generateBtn.addEventListener("click", passwordCharacterLength);
+generateBtn.addEventListener("click", characterLength);
+
