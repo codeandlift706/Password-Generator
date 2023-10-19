@@ -47,7 +47,7 @@ function passwordCharacterType() {
 
 
 //GENERATE RANDOM PASSWORD FROM SELECTIONS
-function generatePassword(int, array) {
+function generatePassword(characterLength, masterArray) {
 
   let lowercaseChar = "qwertyuiopasdfghjklzxcvbnm".split("").sort(); //creates array with each separate item
   let uppercaseChar = "QWERTYUIOPAsDFGHJKLZXCVBNM".split("").sort(); //creates array with each separate item
@@ -59,12 +59,12 @@ function generatePassword(int, array) {
   let officialPassword = "";  //create password to hold string
 
   for (let i = 0; i < possibleChoicesArray.length; i++) { //loop through
-    if (array[i]) { //if the user picked the current array
-      randomArray = randomArray.concat(possibleChoicesArray[i]);
+    if (masterArray[i]) { //if the current index is "true"
+      randomArray = randomArray.concat(possibleChoicesArray[i]); //add the corresponding index
     }
   }
 
-  for (let i = 0; i < int; i++) {
+  for (let i = 0; i < characterLength; i++) {
       officialPassword += randomArray.charAt(Math.floor(Math.random() * randomArray.length));
     }
 
