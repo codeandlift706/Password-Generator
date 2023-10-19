@@ -32,17 +32,10 @@ function passwordCharacterType() {
   let selectNumberChar = confirm("Do you want numeric characters?");
   let selectSpecialChar = confirm("Do you want special characters?");
 
+
   if (!selectLowercaseChar && !selectUppercaseChar && !selectNumberChar && !selectSpecialChar) { //if the user selects none
     alert("You must select at least one character type.");
     return null;
-  } else { //if the user selects something
-
-    let randomArray = [allCharactersArray]; //create a new array object to hold what the user picked
-    let array = [];
-    console.log(typeof array); //object
-    console.log(typeof randomArray); //object
-    // allCharactersArray = "";
-
   }
 
     let masterArray = [selectLowercaseChar, selectUppercaseChar, selectNumberChar, selectSpecialChar];
