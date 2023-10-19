@@ -1,12 +1,13 @@
 //global variables
 let generateBtn = document.querySelector("#generate");
 
-//------------------------------------------CHOOsE CHARACTER LENGTH CODE---------------------------------------------
 
+//CHOOSE CHARACTER LENGTH CODE
 function passwordCharacterLength() {
   let characterLength = prompt("What is the length of your desired password? Enter a number.");
-  passwordCharacterLength = parseInt(passwordCharacterLength);
+  characterLength = parseInt(characterLength);
 
+  //min & max validation
   if (characterLength < 8) {
     alert("Length of password must be at least 8 characters. Please input a higher number.");
     return null;
@@ -15,78 +16,62 @@ function passwordCharacterLength() {
     return null;
 
   } else {
-    alert("Got it! Now, answer the following questions to select which character type(s) you want to include in your password.");
 
-    return characterLength; //the character length inputed
+    console.log(characterLength); //characterLength is the # the user inputted
+    passwordCharacterType();
+    generatePassword(characterLength); //pass the user input
   }
-
 }
 
-//-------------------------------------------CHOOsE TYPE OF CHARACTER CODE------------------------------------------
-//If selected, the character type will be added to the array
 
-// REsOURCE FROM CLAss
-
-function selectPasswordChar() {
+//CHOOSE CHARACTER TYPES
+function passwordCharacterType() {
 
   let selectLowercaseChar = confirm("Do you want lowercase characters?");
   let selectUppercaseChar = confirm("Do you want uppercase characters?");
   let selectNumberChar = confirm("Do you want numeric characters?");
   let selectSpecialChar = confirm("Do you want special characters?");
 
-  if (!selectLowercaseChar && !selectUppercaseChar && !selectNumberChar && !selectSpecialChar) {
+
+  if (!selectLowercaseChar && !selectUppercaseChar && !selectNumberChar && !selectSpecialChar) { //if the user selects none
     alert("You must select at least one character type.");
     return null;
   }
 
-  let masterArray = [selectLowercaseChar, selectUppercaseChar, selectNumberChar, selectSpecialChar];
-  console.log(masterArray);
+    let masterArray = [selectLowercaseChar, selectUppercaseChar, selectNumberChar, selectSpecialChar];
+    console.log(masterArray);
 
-  return masterArray; //the array of all characters
-}
+    generatePassword(masterArray);
+  }
 
 
-//-----------------------------FORMULAs TO GENERATE THE PAssWORD----------------------------------------------------------
 
-function generatePassword(int, array) {
+//GENERATE RANDOM PASSWORD FROM SELECTIONS
+function generatePassword(characterLength, masterArray) {
 
-  let wantLowercaseChar = "qwertyuiopasdfghjklzxcvbnm".split("").sort(); //creates array with each separate item
-  let wantUppercaseChar = "QWERTYUIOPAsDFGHJKLZXCVBNM".split("").sort(); //creates array with each separate item
-  let wantNumberChar = "1234567890".split("").sort(); //creates array with each separate item
-  let wantSpecialChar = "!@#$%^&*_+:<>".split("").sort(); //creates array with each separate item
-  let characterSelections = [wantLowercaseChar, wantUppercaseChar, wantNumberChar, wantSpecialChar];
-  let randomArray = "";
-  let officialPassword = "";
+  let lowercaseChar = "qwertyuiopasdfghjklzxcvbnm".split("").sort(); //creates array with each separate item
+  let uppercaseChar = "QWERTYUIOPAsDFGHJKLZXCVBNM".split("").sort(); //creates array with each separate item
+  let numberChar = "1234567890".split("").sort(); //creates array with each separate item
+  let specialChar = "!@#$%^&*_+:<>".split("").sort(); //creates array with each separate item
+  let possibleChoicesArray = [lowercaseChar, uppercaseChar, numberChar, specialChar];
 
-  for (let i = 0; i < characterSelections.length; i++) {
-    if (array[i]) {
-      randomArray = randomArray.concat(characterSelections[i]);
+  let randomArray = ""; //
+  let officialPassword = "";  //create password to hold string
+
+  for (let i = 0; i < possibleChoicesArray.length; i++) { //loop through
+    if (masterArray[i]) { //if the current index is "true"
+      randomArray = randomArray.concat(possibleChoicesArray[i]); //add the corresponding index
     }
   }
 
-  for (let i = 0; i < int; i++) {
-    officialPassword += randomArray.charAt(Math.floor(Math.random() * randomArray.length));
-  }
+  for (let i = 0; i < characterLength; i++) {
+      officialPassword += randomArray.charAt(Math.floor(Math.random() * randomArray.length));
+    }
 
-  return officialPassword;
-}
-
-//-----------------------------sTARTER CODE & NOW COMBINE sO THEY ARE PAssING------------------------------------------------------------------------------
-
-// Write password to the #password input
-function writePassword() {
-  let passwordText = document.queryselector("#password");
-  let passwordCharacterLength = passwordCharacterLength();
-  if (passwordCharacterLength == null) {
-    return;
+    let passwordText = document.queryselector("#password");
+    passwordText.value = officialPassword;
   }
-  let arrayMaster = selectPasswordChar();
-  if (selectPasswordChar == null) {
-    return;
-  }
-  let finalPassword = generatePassword(passwordCharacterLength, arrayMaster);
-  passwordText.value = password;
-}
+  
 
 
 //processes
