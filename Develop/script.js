@@ -47,14 +47,14 @@ function passwordCharacterType(characterLength) {
 //GENERATE RANDOM PASSWORD FROM SELECTIONS
 function generatePassword(characterLength, masterArray) {
 
-  let lowercaseChar = "qwertyuiopasdfghjklzxcvbnm".split("").sort(); //creates array with each separate item
-  let uppercaseChar = "QWERTYUIOPAsDFGHJKLZXCVBNM".split("").sort(); //creates array with each separate item
-  let numberChar = "1234567890".split("").sort(); //creates array with each separate item
-  let specialChar = "!@#$%^&*_+:<>".split("").sort(); //creates array with each separate item
+  let lowercaseChar = "qwertyuiopasdfghjklzxcvbnm";
+  let uppercaseChar = "QWERTYUIOPAsDFGHJKLZXCVBNM"; 
+  let numberChar = "1234567890"; 
+  let specialChar = "!@#$%^&*_+:<>";
   let possibleChoicesArray = [lowercaseChar, uppercaseChar, numberChar, specialChar];
 
   let randomArray = ""; //
-  let officialPassword = "";  //create password to hold string
+  let officialPassword = ""; //create password to hold string
 
 
   for (let i = 0; i < possibleChoicesArray.length; i++) { //loop through
@@ -62,18 +62,19 @@ function generatePassword(characterLength, masterArray) {
       randomArray = randomArray.concat(possibleChoicesArray[i]); //add the corresponding index
     }
   }
+  console.log(randomArray);
+  console.log(typeof randomArray);
+
 
   for (let i = 0; i < characterLength; i++) {
     officialPassword += randomArray.charAt(Math.floor(Math.random() * randomArray.length));
   }
+  console.log(officialPassword);
 
-    officialPassword = officialPassword.join(" ");
     let passwordText = document.querySelector("#password");
     passwordText.value = officialPassword;
   }
   
-
-
 
 
 
